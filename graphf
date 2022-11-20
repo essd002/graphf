@@ -1,0 +1,16 @@
+#!/usr/bin/python3
+import matplotlib.pyplot as plt
+import numpy as np
+import sys
+import os
+a = sys.argv[1]
+dataArray = np.genfromtxt(a, delimiter=',', names=True)
+b: int = 0
+c: int = 0
+plt.figure()
+for col_name in dataArray.dtype.names:
+    if col_name == "Time":
+        continue
+    plt.plot(dataArray["Time"], dataArray[col_name], label=col_name)
+plt.legend()
+plt.show()
